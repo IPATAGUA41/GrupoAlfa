@@ -7,6 +7,15 @@ package aplicacion.modelo.dominio;
  */
 public class Libro {
     private String isbn;
+
+    public Libro() {
+    }
+
+    public Libro(String isbn) {
+        this.isbn = isbn;
+    }
+    
+    
     
     
     
