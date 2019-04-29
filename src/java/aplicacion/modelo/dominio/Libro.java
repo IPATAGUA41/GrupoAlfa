@@ -1,12 +1,13 @@
 package aplicacion.modelo.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author PC1
  */
-public class Libro {
+public class Libro implements Serializable{
 
     private String codigo;
     private String isbn;
