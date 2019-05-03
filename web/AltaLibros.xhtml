@@ -10,16 +10,16 @@
     </h:head>
     <h:body>
         <h:form id="frmAltaLibro">
-            <p:panel>
+            <p:panel id="pnlAlta" header="Alta De Un Libro" style="display:bloc;text-align:center">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Codigo"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}" decimalPlaces="0"/>
                     <p:outputLabel value="ISBN"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.isbn}"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.isbn}" maxlength="13"/>
                     <p:outputLabel value="Titulo"/>
                     <p:inputText value="#{altaLibrosFormBean.libro.titulo}"/>
                     <p:outputLabel value="Cantidad de Paginas"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}" decimalPlaces="0"/>
                     <p:outputLabel value="Autor" />
                     <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px">
                         <f:selectItem itemLabel="Gabriel Garcia Marquez" itemValue="Gabriel Garcia Marquez" />
