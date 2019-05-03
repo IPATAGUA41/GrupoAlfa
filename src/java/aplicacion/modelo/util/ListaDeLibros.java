@@ -15,8 +15,8 @@ import java.util.List;
  *
  * @author Leo
  */
-public class ListaDeLibros implements Serializable{
-   
+public class ListaDeLibros implements Serializable {
+
     private List<Libro> listaLibros;
 
     public ListaDeLibros() {
@@ -25,7 +25,15 @@ public class ListaDeLibros implements Serializable{
     }
 
     public void agregarUnLibro(Libro l) {
-        listaLibros.add(l);
+        Libro libroAuxiliar= new Libro(); //Se crea el libro auxiliar para que no tenga problemas con las referencias
+        libroAuxiliar.setCodigo(l.getCodigo());
+        libroAuxiliar.setIsbn(l.getIsbn());
+        libroAuxiliar.setTitulo(l.getTitulo());
+        libroAuxiliar.setCantidadPag(l.getCantidadPag());
+        libroAuxiliar.setAutor(l.getAutor());
+        libroAuxiliar.setTematica(l.getTematica());
+        libroAuxiliar.setFechaEdicion(l.getFechaEdicion());
+        listaLibros.add(libroAuxiliar);
     }
 
     public void eliminarUnLibro(Libro l) {
@@ -33,13 +41,11 @@ public class ListaDeLibros implements Serializable{
     }
 
     public void modificarUnLibro(Libro l, String codigo) {
-       for(int i=0;i<listaLibros.size();i++){
-           if(listaLibros.get(i).getCodigo().equals(codigo)){
-              listaLibros.set(i, l);
-           }
-       } 
-       
-
+        for (int i = 0; i < listaLibros.size(); i++) {
+            if (listaLibros.get(i).getCodigo().equals(codigo)) {
+                listaLibros.set(i, l);
+            }
+        }
     }
 
     /**
@@ -56,30 +62,28 @@ public class ListaDeLibros implements Serializable{
         this.listaLibros = listaLibros;
     }
 
-   
-    public Libro buscarLibro(String codigo){
-         Libro libroaux=null;
-         for(Libro l:listaLibros){
-             if(l.getCodigo().equals(codigo)){
-                 libroaux=l;
-             }
-         }
-         return libroaux;
+    public Libro buscarLibro(String codigo) {
+        Libro libroaux = null;
+        for (Libro l : listaLibros) {
+            if (l.getCodigo().equals(codigo)) {
+                libroaux = l;
+            }
+        }
+        return libroaux;
     }
-    
-    
-    public void ordenarLibroAsc(){
+
+    public void ordenarLibroAsc() {
         listaLibros.sort(Comparator.comparing(Libro::getTitulo));
     }
-    
-    public List<Libro> buscarLibroPorLetra(char letra){
-        List<Libro> listaAux=new ArrayList<>();
-        for(int i=0;i<listaLibros.size();i++){
-            if(listaLibros.get(i).getTitulo().charAt(0)==letra ){
+
+    public List<Libro> buscarLibroPorLetra(char letra) {
+        List<Libro> listaAux = new ArrayList<>();
+        for (int i = 0; i < listaLibros.size(); i++) {
+            if (listaLibros.get(i).getTitulo().charAt(0) == letra) {
                 listaAux.add(listaLibros.get(i));
             }
         }
-        
-        return listaAux; 
+
+        return listaAux;
     }
 }

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="frmAltaLibro">
+            <p:panel>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Codigo"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}"/>
+                    <p:outputLabel value="ISBN"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.isbn}"/>
+                    <p:outputLabel value="Titulo"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.titulo}"/>
+                    <p:outputLabel value="Cantidad de Paginas"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}"/>
+                    <p:outputLabel value="Autor" />
+                    <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px">
+                        <f:selectItem itemLabel="Gabriel Garcia Marquez" itemValue="Gabriel Garcia Marquez" />
+                        <f:selectItem itemLabel="Pablo Neruda" itemValue="Pablo Neruda" />
+                        <f:selectItem itemLabel="Julio Cortazar" itemValue="Julio Cortazar" />
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Tematica"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.tematica}"/>
+                    <p:outputLabel value="Fecha de publicacion" />
+                    <p:calendar id="button" value="#{altaLibrosFormBean.libro.fechaEdicion}" showOn="button" />
+                    <p:outputLabel/>
+                    <p:commandButton value="Guardar" actionListener="#{altaLibrosFormBean.GuardarLibro()}" update="frmAltaLibro tblLibros"/>
+                </p:panelGrid>
+                <p:dataTable id="tblLibros" value="#{altaLibrosFormBean.libros}" var="lib">
+                        <p:column headerText="Titulo">
+                            <p:outputLabel value="#{lib.titulo}" />
+                        </p:column>
+                    
+                    </p:dataTable>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+
