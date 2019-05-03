@@ -13,23 +13,23 @@
             <p:panel id="pnlAlta" header="Alta De Un Libro" style="display:bloc;text-align:center">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Codigo"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}" decimalPlaces="0" required="true" />
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}" decimalPlaces="0"/>
                     <p:outputLabel value="ISBN"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.isbn}" maxlength="13" required="true"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.isbn}" maxlength="13"/>
                     <p:outputLabel value="Titulo"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.titulo}" required="true"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.titulo}"/>
                     <p:outputLabel value="Cantidad de Paginas"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}" decimalPlaces="0" required="true"/>
+                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}" decimalPlaces="0"/>
                     <p:outputLabel value="Autor" />
-                    <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px" required="true">
+                    <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px">
                         <f:selectItem itemLabel="Gabriel Garcia Marquez" itemValue="Gabriel Garcia Marquez" />
                         <f:selectItem itemLabel="Pablo Neruda" itemValue="Pablo Neruda" />
                         <f:selectItem itemLabel="Julio Cortazar" itemValue="Julio Cortazar" />
                     </p:selectOneMenu>
                     <p:outputLabel value="Tematica"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.tematica}" required="true"/>
+                    <p:inputText value="#{altaLibrosFormBean.libro.tematica}"/>
                     <p:outputLabel value="Fecha de publicacion" />
-                    <p:calendar id="button" value="#{altaLibrosFormBean.libro.fechaEdicion}" showOn="button" required="true"/>
+                    <p:calendar id="button" value="#{altaLibrosFormBean.libro.fechaEdicion}" showOn="button"/>
                     <p:outputLabel/>
                     <p:commandButton value="Guardar" actionListener="#{altaLibrosFormBean.GuardarLibro()}" update="frmAltaLibro tblLibros"/>
                 </p:panelGrid>
