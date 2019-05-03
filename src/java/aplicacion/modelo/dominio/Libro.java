@@ -12,12 +12,12 @@ public class Libro implements Serializable{
     private String codigo;
     private String isbn;
     private String titulo;
-    private int cantidadPag;
+    private Integer cantidadPag;
     private String autor;
     private String tematica;
     private Date fechaEdicion;
 
-    public Libro(String codigo, String isbn, String titulo, int cantidadPag, String autor, String tematica, Date fechaEdicion) {
+    public Libro(String codigo, String isbn, String titulo, Integer cantidadPag, String autor, String tematica, Date fechaEdicion) {
         this.codigo = codigo;
         this.isbn = isbn;
         this.titulo = titulo;
@@ -75,14 +75,14 @@ public class Libro implements Serializable{
     /**
      * @return the cantidadPag
      */
-    public int getCantidadPag() {
+    public Integer getCantidadPag() {
         return cantidadPag;
     }
 
     /**
      * @param cantidadPag the cantidadPag to set
      */
-    public void setCantidadPag(int cantidadPag) {
+    public void setCantidadPag(Integer cantidadPag) {
         this.cantidadPag = cantidadPag;
     }
 
