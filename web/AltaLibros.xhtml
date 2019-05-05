@@ -1,15 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-      xmlns:f="http://xmlns.jcp.org/jsf/core" >
-    <h:head>
-        <title>Alta Libro</title>
-    </h:head>
-    <h:body>
-        <h:form id="frmAltaLibro">
+    <body>
+
+        <ui:composition template="./resources/template/templatePrincipal.xhtml">
+
+            <ui:define name="content">
+                <h:form id="frmAltaLibro">
             <p:panel id="pnlAlta" header="Alta De Un Libro" style="display:bloc;text-align:center">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Codigo"/>
@@ -60,6 +62,9 @@
                     </p:dataTable>
             </p:panel>
         </h:form>
-    </h:body>
-</html>
+            </ui:define>
 
+        </ui:composition>
+
+    </body>
+</html>

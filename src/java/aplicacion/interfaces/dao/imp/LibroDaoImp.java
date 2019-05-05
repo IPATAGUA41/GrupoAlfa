@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Leo
+ * @author Grupo Alfa
  */
 public class LibroDaoImp implements Serializable, ILibroDao{
     private ListaDeLibros lista;
