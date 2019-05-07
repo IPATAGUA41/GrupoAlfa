@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author LENOVO
+ * @author Grupo Alfa
  */
 public class ListaDeAutores {
     private List<Autor> Autores;

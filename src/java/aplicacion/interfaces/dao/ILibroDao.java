@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author GRUPO ALFA
+ * @author Grupo Alfa
  */
 public interface ILibroDao {
     

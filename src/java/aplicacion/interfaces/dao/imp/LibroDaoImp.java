@@ -20,8 +20,7 @@ public class LibroDaoImp implements Serializable, ILibroDao{
     }
     
     @Override
-    public void crearLibro(Libro libro) {
-        
+    public void crearLibro(Libro libro) {        
        lista.agregarUnLibro(libro);
     }
 

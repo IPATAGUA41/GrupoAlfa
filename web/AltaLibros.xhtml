@@ -11,57 +11,66 @@
         <ui:composition template="./resources/template/templatePrincipal.xhtml">
 
             <ui:define name="content">
+                <p:growl id="idmensaje" showDetail="true" sticky="true"/>
                 <h:form id="frmAltaLibro">
-            <p:panel id="pnlAlta" header="Alta De Un Libro" style="display:bloc;text-align:center">
-                <p:panelGrid columns="2">
-                    <p:outputLabel value="Codigo"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}" decimalPlaces="0"/>
-                    <p:outputLabel value="ISBN"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.isbn}" maxlength="13"/>
-                    <p:outputLabel value="Titulo"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.titulo}"/>
-                    <p:outputLabel value="Cantidad de Paginas"/>
-                    <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}" decimalPlaces="0"/>
-                    <p:outputLabel value="Autor" />
-                    <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px">
-                        <f:selectItem itemLabel="Gabriel Garcia Marquez" itemValue="Gabriel Garcia Marquez"/>
-                        <f:selectItem itemLabel="Pablo Neruda" itemValue="Pablo Neruda" />
-                        <f:selectItem itemLabel="Julio Cortazar" itemValue="Julio Cortazar" />
-                    </p:selectOneMenu>
-                    <p:outputLabel value="Tematica"/>
-                    <p:inputText value="#{altaLibrosFormBean.libro.tematica}"/>
-                    <p:outputLabel value="Fecha de publicacion" />
-                    <p:calendar id="button" value="#{altaLibrosFormBean.libro.fechaEdicion}" showOn="button"/>
-                    <p:outputLabel/>
-                    <p:commandButton value="Guardar" actionListener="#{altaLibrosFormBean.GuardarLibro()}" update="frmAltaLibro tblLibros"/>
-                </p:panelGrid>
-                <p:dataTable id="tblLibros" value="#{altaLibrosFormBean.libros}" var="lib">
-                        <p:column headerText="Codigo">
-                            <p:outputLabel value="#{lib.codigo}" />
-                        </p:column>
-                        <p:column headerText="ISBN">
-                            <p:outputLabel value="#{lib.isbn}" />
-                        </p:column>
-                        <p:column headerText="Titulo">
-                            <p:outputLabel value="#{lib.titulo}" />
-                        </p:column>
-                        <p:column headerText="Cantidad De Paginas">
-                            <p:outputLabel value="#{lib.cantidadPag}" />
-                        </p:column>
-                        <p:column headerText="Autor">
-                            <p:outputLabel value="#{lib.autor}" />
-                        </p:column>
-                        <p:column headerText="Tematica">
-                            <p:outputLabel value="#{lib.tematica}" />
-                        </p:column>
-                        <p:column headerText="Fecha De Publicacion" >
-                            <p:outputLabel value="#{lib.fechaEdicion}">
-                                <f:convertDateTime pattern="dd-MM-yyyy" />
-                            </p:outputLabel>
-                        </p:column>
-                    </p:dataTable>
-            </p:panel>
-        </h:form>
+
+                    <p:panel id="pnlAlta" header="Alta De Un Libro" style="display:bloc;text-align:center">
+
+                        <p:panelGrid columns="2">
+                            <p:outputLabel value="Codigo"/>
+                            <p:inputNumber value="#{altaLibrosFormBean.libro.codigo}" decimalPlaces="0"/>
+                            <p:outputLabel value="ISBN"/>
+                            <p:inputText value="#{altaLibrosFormBean.libro.isbn}" maxlength="13"/>
+                            <p:outputLabel value="Titulo"/>
+                            <p:inputText value="#{altaLibrosFormBean.libro.titulo}"/>
+                            <p:outputLabel value="Cantidad de Paginas"/>
+                            <p:inputNumber value="#{altaLibrosFormBean.libro.cantidadPag}" decimalPlaces="0"/>
+                            <p:outputLabel value="Autor" />
+                            <p:selectOneMenu  value="#{altaLibrosFormBean.libro.autor}" style="width:125px">
+                                <f:selectItem itemLabel="Gabriel Garcia Marquez" itemValue="Gabriel Garcia Marquez"/>
+                                <f:selectItem itemLabel="Pablo Neruda" itemValue="Pablo Neruda" />
+                                <f:selectItem itemLabel="Julio Cortazar" itemValue="Julio Cortazar" />
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Tematica"/>
+                            <p:inputText value="#{altaLibrosFormBean.libro.tematica}"/>
+                            <p:outputLabel value="Fecha de publicacion" />
+                            <p:calendar id="button" value="#{altaLibrosFormBean.libro.fechaEdicion}" showOn="button"/>
+                            <p:outputLabel/>
+
+
+                            <p:commandButton value="Guardar" actionListener="#{altaLibrosFormBean.GuardarLibro()}" 
+                                             update="frmAltaLibro, tblLibros, idmensaje"/>
+
+
+
+                        </p:panelGrid>
+                        <p:dataTable id="tblLibros" value="#{altaLibrosFormBean.libros}" var="lib">
+                            <p:column headerText="Codigo">
+                                <p:outputLabel value="#{lib.codigo}" />
+                            </p:column>
+                            <p:column headerText="ISBN">
+                                <p:outputLabel value="#{lib.isbn}" />
+                            </p:column>
+                            <p:column headerText="Titulo">
+                                <p:outputLabel value="#{lib.titulo}" />
+                            </p:column>
+                            <p:column headerText="Cantidad De Paginas">
+                                <p:outputLabel value="#{lib.cantidadPag}" />
+                            </p:column>
+                            <p:column headerText="Autor">
+                                <p:outputLabel value="#{lib.autor}" />
+                            </p:column>
+                            <p:column headerText="Tematica">
+                                <p:outputLabel value="#{lib.tematica}" />
+                            </p:column>
+                            <p:column headerText="Fecha De Publicacion" >
+                                <p:outputLabel value="#{lib.fechaEdicion}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </p:outputLabel>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
             </ui:define>
 
         </ui:composition>

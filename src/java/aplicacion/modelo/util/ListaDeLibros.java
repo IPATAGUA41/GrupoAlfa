@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+
 /**
  *
- * @author Leo
+ * @author Grupo Alfa
  */
 public class ListaDeLibros implements Serializable {
 
@@ -23,33 +24,10 @@ public class ListaDeLibros implements Serializable {
         listaLibros = new ArrayList<>();
 
     }
-       //el siguiente metodo sera utilizado como ayuda en metodo de agregarUnLibro
-    public boolean buscarLibroPorCodigo(String codigo) {
-        boolean bandera=false;
-        for (Libro l : listaLibros) {
-            if (l.getCodigo().equals(codigo)) {
-                bandera=true;
-            }
-        }
-        return bandera;
-    }
-    
-    //el siguiente metodo sera utilizado como ayuda en metodo de agregarUnLibro
-    public boolean buscarLibroPorIsbn(String isbn) {
-        boolean bandera=false;
-        for (Libro l : listaLibros) {
-            if (l.getIsbn().equals(isbn)) {
-                bandera=true;
-            }
-        }
-        return bandera;
-    }
+ 
     
     public void agregarUnLibro(Libro l) {
-        boolean existeCodigo=buscarLibroPorCodigo(l.getCodigo());
-        boolean existeIsbn=buscarLibroPorIsbn(l.getIsbn());
-        
-        if((existeCodigo!=true) && (existeIsbn!=true)){
+
              Libro libroAuxiliar= new Libro(); //Se crea el libro auxiliar para que no tenga problemas con las referencias
              libroAuxiliar.setCodigo(l.getCodigo());
              libroAuxiliar.setIsbn(l.getIsbn());
@@ -58,13 +36,8 @@ public class ListaDeLibros implements Serializable {
              libroAuxiliar.setAutor(l.getAutor());
              libroAuxiliar.setTematica(l.getTematica());
              libroAuxiliar.setFechaEdicion(l.getFechaEdicion());
-             listaLibros.add(libroAuxiliar);}
-     /*   else{
-        en la pagina se debe mostrar un mensaje que diga que el codigo ya exite
-        o bien que el isbn ya exiteS
-        }**/
+             listaLibros.add(libroAuxiliar);
     }
-
     public void eliminarUnLibro(Libro l) {
         listaLibros.remove(l);
     }
